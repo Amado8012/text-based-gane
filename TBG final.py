@@ -2,12 +2,12 @@ import os #color change
 import winsound #needed for beep
 import random
 
-
+#this function is ment to make sounds 
 def printSound():
     print("drip")
     print("drip")
     print("drop")
-
+#a randomized loot dropper
 def itemDropper():
     num = random.randrange(1, 100)
     if num < 25:
@@ -25,7 +25,7 @@ def itemDropper():
         print("no item dropped")
 
     print("your inventory:", inventory)
-
+# a random room discription
 def roomDiscriptions():
     num = random.randrange(1, 100)
     if num < 25:
@@ -58,7 +58,7 @@ while True:
         elif room == 2:
             itemDropper()
             roomDiscriptions()
-            os.system('color 2f')
+            os.system('color 2f')#this changes the color of the text 
             choice = input("you walk into the court yard and notice it is completly deserted, you notice a open door. you can go west and go back to your cell or go south.")
             if choice == "west":
                 room == 1
@@ -69,9 +69,9 @@ while True:
 
         elif room == 3:
             os.system('color 3f')
-            print("you see a key on the floor")
+            print("you see a key on the floor")# one of the items needed to win the game 
             choice = input("you're in room 2, you can go south or north")
-            if choice == "key" or choice == "get key":
+            if choice == "key" or choice == "get key":# you can only get the key if the player picks it up 
              print("you put the key in the inventory")
              inventory[3]="key"
             choice = input("you walk into the room and it is the guards brake room it looks abandoned like everyone left very quickly, you noticed there is another door to the right. you can go north an go back to the court yard or go east.")
@@ -94,7 +94,7 @@ while True:
                 print("I don't understand that. ")
 
         elif room == 5:
-            print(inventory)
+            print(inventory)#this shows the players inventory 
             itemDropper()
             roomDiscriptions()
             os.system('color 5f')
@@ -140,9 +140,9 @@ while True:
         
         elif room == 9:
             os.system('color 9f')
-            print("you see a glowing sword on a table")
+            print("you see a glowing sword on a table")# the second item neede to win the game
             choice = input("you're in room 2, you can go south or north")
-            if choice == "sword" or choice == "grab sword":
+            if choice == "sword" or choice == "grab sword":# only able to pick up sword if the player wants to 
              print("you put the sword in your inventory")
              inventory[4]="sword"
             choice = input("you enter the armoury, it has every kind of wepon you need swards, speers, bows and arows, crossbows, shelds, you notice a very large and old chest that is looked but you can't find a key in the armoury mayby it is in another room, you find another door.  you can go east to go back to the cellblock or go south to exit the armoury.")
@@ -150,7 +150,7 @@ while True:
                 room = 8
             if choice == "south": 
                 
-                if inventory[3]=="key":
+                if inventory[3]=="key":# the player needs the key in order to open the door 
                     print("you unlock the door with the key")
                     room = 10
                     inventory[3]=" "
@@ -166,9 +166,9 @@ while True:
                 room = 9
             if choice == "south":
                 
-                if inventory[4]=="sword":
+                if inventory[4]=="sword":# sword opens the last door and you win
                     print("the sword starts to glow and the door starts to slowly open, YOU WIN!!")
-                    print("""     /| ________________\nO|===|* >________________>\n     \|""") 
+                    print("""     /| ________________\nO|===|* >________________>\n     \|""") # a picture of the sword is shown 
                     break
                 
                 else:
